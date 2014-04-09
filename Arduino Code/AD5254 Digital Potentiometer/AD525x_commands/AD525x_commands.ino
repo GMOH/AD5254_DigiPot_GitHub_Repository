@@ -1,3 +1,24 @@
+/*  AD525X_Commands.ino
+
+    AD525X Digital potentiometer demo program.
+    This code controls the Digital potentiometer and brigthens and dims 4 LEDs connected between wipper and ground with a current limiting resistor
+    More documentation can be found at http://familia-herrera.com/wordpress/archives/576
+    Copyright (C) 2014  Guillermo Herrera
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+    */
+
 #include <Wire.h>
 
 int RDAC0 = 0;
@@ -19,193 +40,28 @@ int num;
 //Set up routine
 void setup()
 {
-Serial.begin(9600);  // start serial for output
 Wire.begin(); // join i2c bus (address optional for master)
-
-
-//Reads all RDAC Current Values and prints them on serial
-//readAllRDAC();
-//byte rdac = readRDAC(0);
-//Serial.print("RDAC0 Initial Value =");
-//Serial.println(rdac,DEC);
-
-//Reads all EEMEM Current Values and prints them on serial
-//readAllEEMEM();
-//byte eem = readEEMEM(1);
-//Serial.println(eem,DEC);
 }
 
 //*********************Start Main Loop**********************
 void loop()
 {
-//Serial.println("Enter one of the folowing numbers");Serial.println(" ");
-//Serial.println(" 0. Read all EEMEMs and RDACs");Serial.println(" ");
-//Serial.print(" 1. Read RDAC0");Serial.print("\t");Serial.print("\t");
-//Serial.print(" 2. Read RDAC1");Serial.print("\t");Serial.print("\t");
-//Serial.print(" 3. Read RDAC2");Serial.print("\t");Serial.print("\t");
-//Serial.println(" 4. Read RDAC3");
-//
-//Serial.print(" 5. Read EEMEM0");Serial.print("\t");Serial.print("\t");
-//Serial.print(" 6. Read EEMEM1");Serial.print("\t");Serial.print("\t");
-//Serial.print(" 7. Read EEMEM2");Serial.print("\t");Serial.print("\t");
-//Serial.println(" 8. Read EEMEM3");
-//
-//Serial.print("11. Write RDAC0");Serial.print("\t");Serial.print("\t");
-//Serial.print("12. Write RDAC1");Serial.print("\t");Serial.print("\t");
-//Serial.print("13. Write RDAC2");Serial.print("\t");Serial.print("\t");
-//Serial.println("14. Write RDAC3");
-//
-//Serial.print("15. Write EEMEM0");Serial.print("\t");
-//Serial.print("16. Write EEMEM1");Serial.print("\t");
-//Serial.print("17. Write EEMEM2");Serial.print("\t");
-//Serial.println("18. Write EEMEM3");
-//Serial.println(" ");
-//
-//while (Serial.available() == 0);
-//{
-// valentered = Serial.parseInt();
-//  switch (valentered)
-// {
-//   //Write Cases
-//   case 1:
-//   address = RDAC0;
-//   num = 0;
-//   break;
-//   case 2:
-//   address = RDAC1;
-//   num = 1;
-//   break;
-//   case 3:
-//   address = RDAC2;
-//   num = 2;
-//   break;
-//   case 4:
-//   address = RDAC3;
-//   num = 3;
-//   break;
-//   case 5:
-//   address = EEMEM0;
-//   num = 0;
-//   break;
-//   case 6:
-//   address = EEMEM1;
-//   num = 1;
-//   break;
-//   case 7:
-//   address = EEMEM2;
-//   num = 2;
-//   break;
-//   case 8:
-//   address = EEMEM3;
-//   num = 3;
-//   break;
-//   
-//   //Read Cases
-//   case 11:
-//   address = RDAC0;
-//   num = 0;
-//   break;
-//   case 12:
-//   address = RDAC1;
-//   num = 1;
-//   break;
-//   case 13:
-//   address = RDAC2;
-//   num = 2;
-//   break;
-//   case 14:
-//   address = RDAC3;
-//   num = 3;
-//   break;
-//   case 15:
-//   address = EEMEM0;
-//   num = 0;
-//   break;
-//   case 16:
-//   address = EEMEM1;
-//   num = 1;
-//   break;
-//   case 17:
-//   address = EEMEM2;
-//   num = 2;
-//   break;
-//   case 18:
-//   address = EEMEM3;
-//   num = 3;
-//   break;
-// }
-////Read operations 
-// if (valentered == 0)
-// {
-//     readAllEEMEM();
-//     readAllRDAC();
-// }
-// else if (valentered >= 1 && valentered <= 4)
-// {
-//   Serial.print("RDAC");
-//   Serial.print(num,DEC);
-//   Serial.print(" Value = ");
-//   RDACvalread = readRDAC (address);
-//   Serial.println(RDACvalread,DEC);
-// }
-// else if (valentered >= 5 && valentered <= 8)
-// {
-//   Serial.print("EEMEM");
-//   Serial.print(num,DEC);
-//   Serial.print(" Value = ");
-//   EEMEMvalread = readEEMEM(address);
-//   Serial.println(EEMEMvalread,DEC);
-// }
-// 
-// //Write operations
-//  else if (valentered >= 11 && valentered <= 14)
-// {
-//   Serial.print("Enter a value between 0 and 255 to send to RDAC");
-//   Serial.print(num,DEC);
-//   Serial.print(" and press enter ");
-//   while (Serial.available() == 0);
-//   {
-//     valentered = Serial.parseInt(); 
-//     RDACWrite(address, valentered);
-//   }
-// }
-// else if (valentered >= 15 && valentered <= 18)
-// {
-//   Serial.print("Enter a value between 0 and 255 to send to RDAC");
-//   Serial.print(num,DEC);
-//   Serial.print(" and press enter ");
-//   while (Serial.available() == 0);
-//   {
-//     valentered = Serial.parseInt();
-//     EEMEMWrite(address, valentered);
-//   }
-// }
-// else
-// {
-//   Serial.println("Not a valid selection");
-// }
-//   
-//}
-//Serial.println("");
-  int sec = 1;
+int sec = 1;
 for (int i = 0; i < 100; i++)
 {
-  writeRDAC(RDAC0,155+i);
-  writeRDAC(RDAC2,155+i);
+  writeRDAC(RDAC0,155+i); //dim LED on RDAC0
+  writeRDAC(RDAC2,155+i); //dim LED on RDAC2
   delay(sec);
-  writeRDAC(RDAC1,255-i);
-  writeRDAC(RDAC3,255-i);
-  //readRDAC(RDAC0);
+  writeRDAC(RDAC1,255-i); //brigthen LED on RDAC1
+  writeRDAC(RDAC3,255-i); //brigthen LED on RDAC3
 }
 for (int i = 0; i < 256; i++)
 {
-  writeRDAC(RDAC0,255-i);
-  writeRDAC(RDAC2,255-i);
+  writeRDAC(RDAC0,255-i); //brigthen LED on RDAC0
+  writeRDAC(RDAC2,255-i); //brigthen LED on RDAC2
   delay(sec);
-  writeRDAC(RDAC1,155+i);
-  writeRDAC(RDAC3,155+i);
- 
-  //readRDAC(RDAC0);
+  writeRDAC(RDAC1,155+i); //dim LED on RDAC1
+  writeRDAC(RDAC3,155+i); //dim LED on RDAC3
 }
   
 }

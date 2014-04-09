@@ -1,3 +1,26 @@
+/*  AD525X_functions.ino
+
+    AD525X Digital potentiometer demo program.
+    This code gives the user several options for the various read and write operations for the AD525X digi pots
+    Values expected are from 0 to 255 for the write operations.
+    
+    More documentation can be found at http://familia-herrera.com/wordpress/archives/576
+    Copyright (C) 2014  Guillermo Herrera
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+    */
+    
 #include <Wire.h>
 
 int RDAC0 = 0;
@@ -20,6 +43,12 @@ int num;
 void setup()
 {
 Serial.begin(9600);  // start serial for output
+Serial.println("*********************************************************************");
+Serial.println("AD525X Digital potentiometer  Copyright (C) 2014  Guillermo Herrera");
+Serial.println("This program comes with ABSOLUTELY NO WARRANTY");
+Serial.println("More info at http://familia-herrera.com/wordpress/archives/576");
+Serial.println("*********************************************************************");
+Serial.println("");
 Wire.begin(); // join i2c bus (address optional for master)
 
 
