@@ -1,13 +1,7 @@
 AD5254_DigiPot_GitHub_Repository
 ================================
 
-    AD525X Digital potentiometer demo program.
-    This code Starts by reading all current Pots Values and the EEMEM stored values.
-    The EEMEM stored values are the values that the pots start at power up.
-    Pot Values are from 0 - 255 for 0 to full scale resistance.
-    
-    After it shows the values in the serial monitor, it requests a value for RDAC0
-    Sets the wiper for RDAC0 to the corresponding resistnace and stores the value to EEMEM0
+    AD525X Digital potentiometer code.
     
     More documentation can be found at http://familia-herrera.com/wordpress/archives/576
     Copyright (C) 2014  Guillermo Herrera
