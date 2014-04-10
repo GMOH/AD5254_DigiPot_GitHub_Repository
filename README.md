@@ -20,13 +20,13 @@ AD5254_DigiPot_GitHub_Repository
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
    
 Notes:
-Currently the files are stanalone files fully functional.  The Goal is to make a library that can be dropped in the arduino library folder with an example on how to use the code.  (Working on it)
+Currently the files are standalone files, fully functional.  The Goal is to make a library that can be dropped in the arduino library folder with an example on how to use the code.  (Working on it)
 
 Any help from others is welcome
 
 ToDo:
 1. Add open hardware license to EAGLE files
-2. Create *.h file for library
+2. Create *.h and *.cpp and keywords.txt files for library
 3. Update Website with more details and videos
 
 Change Log:
